@@ -1,0 +1,67 @@
+.create-wrapper {
+  max-width: 1300px;
+  margin: 20px auto;
+  padding: 20px 35px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+.subtitle {
+  margin: -10px 0 20px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.left-panel, .right-panel {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  row-gap: 12px;
+  column-gap: 20px;
+}
+
+h3 {
+  grid-column: span 2;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #003d79;
+  font-size: 18px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+input, select {
+  height: 32px;
+  padding: 5px 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.checkbox-group {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.btn-submit {
+  margin-top: 25px;
+  padding: 8px 20px;
+  background: #0b64b6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+}
