@@ -27,11 +27,23 @@ export default function SearchAccounts() {
     try {
       const data = await searchAccounts(form);
       setResults(data);
-
-      if (data.length === 1) setSelected(data[0].id); // auto-select
+      if (data.length === 1) setSelected(data[0].id);
     } finally {
       setLoading(false);
     }
+  };
+
+  const resetForm = () => {
+    setForm({
+      brandName: "",
+      firstName: "",
+      lastName: "",
+      dob: "",
+      postcode: "",
+      quoteRef: "",
+    });
+    setResults([]);
+    setSelected(null);
   };
 
   const goToAccount = () => {
@@ -44,71 +56,79 @@ export default function SearchAccounts() {
   };
 
   return (
-    <div className="search-container">
-      <h1>Search Accounts</h1>
+    <div className="gw-container">
+      <h2 className="gw-title">Search Accounts</h2>
 
-      <form className="form" onSubmit={onSearch}>
-        <label>Brand Name</label>
-        <select
-          value={form.brandName}
-          onChange={(e) => setField("brandName", e.target.value)}
-        >
-          <option value="">{"<none>"}</option>
-          <option value="BrandA">BrandA</option>
-          <option value="BrandB">BrandB</option>
-        </select>
+      <form className="gw-form" onSubmit={onSearch}>
+        <div className="gw-form-row">
+          <label>Brand Name</label>
+          <select
+            value={form.brandName}
+            onChange={(e) => setField("brandName", e.target.value)}
+          >
+            <option value="">{"<none>"}</option>
+            <option value="BrandA">BrandA</option>
+            <option value="BrandB">BrandB</option>
+          </select>
+        </div>
 
-        <label>First Name</label>
-        <input
-          value={form.firstName}
-          onChange={(e) => setField("firstName", e.target.value)}
-        />
+        <div className="gw-form-row">
+          <label>First Name</label>
+          <input
+            value={form.firstName}
+            onChange={(e) => setField("firstName", e.target.value)}
+          />
+        </div>
 
-        <label>Last Name</label>
-        <input
-          value={form.lastName}
-          onChange={(e) => setField("lastName", e.target.value)}
-        />
+        <div className="gw-form-row">
+          <label>Last Name</label>
+          <input
+            value={form.lastName}
+            onChange={(e) => setField("lastName", e.target.value)}
+          />
+        </div>
 
-        <label>Date Of Birth</label>
-        <input
-          type="date"
-          value={form.dob}
-          onChange={(e) => setField("dob", e.target.value)}
-        />
+        <div className="gw-form-row">
+          <label>Date Of Birth</label>
+          <input
+            type="date"
+            value={form.dob}
+            onChange={(e) => setField("dob", e.target.value)}
+          />
+        </div>
 
-        <label>Postcode</label>
-        <input
-          value={form.postcode}
-          onChange={(e) => setField("postcode", e.target.value)}
-        />
+        <div className="gw-form-row">
+          <label>Postcode</label>
+          <input
+            value={form.postcode}
+            onChange={(e) => setField("postcode", e.target.value)}
+          />
+        </div>
 
-        <label>Quote Ref ID</label>
-        <input
-          value={form.quoteRef}
-          onChange={(e) => setField("quoteRef", e.target.value)}
-        />
+        <div className="gw-form-row">
+          <label>Quote Ref ID</label>
+          <input
+            value={form.quoteRef}
+            onChange={(e) => setField("quoteRef", e.target.value)}
+          />
+        </div>
 
-        <div className="button-row">
-          <button type="submit">Search</button>
-          <button type="button" onClick={openCreateAccount}>
+        <div className="gw-button-row">
+          <button type="submit" className="gw-btn-primary">Search</button>
+          <button type="button" className="gw-btn-secondary" onClick={resetForm}>
+            Reset
+          </button>
+          <button type="button" className="gw-btn-secondary" onClick={openCreateAccount}>
             Create Account
           </button>
         </div>
       </form>
 
-      {/* Show Create/Go depending on results */}
-      {results.length > 0 ? (
-        <button className="btn" onClick={goToAccount}>
-          Go to Account
-        </button>
-      ) : null}
-
-      <h2>Search Results</h2>
+      <h3 className="gw-subtitle">Search Results</h3>
 
       {loading && <p>Loading...</p>}
 
-      <table className="results-table">
+      <table className="gw-table">
         <thead>
           <tr>
             <th></th>
@@ -132,9 +152,7 @@ export default function SearchAccounts() {
                 />
               </td>
               <td>{r.accountNumber}</td>
-              <td>
-                {r.firstName} {r.lastName}
-              </td>
+              <td>{r.firstName} {r.lastName}</td>
               <td>{r.dateOfBirth}</td>
               <td>{r.address}</td>
               <td>{r.postcode}</td>
@@ -143,6 +161,12 @@ export default function SearchAccounts() {
           ))}
         </tbody>
       </table>
+
+      {results.length > 0 && (
+        <button className="gw-btn-primary" onClick={goToAccount}>
+          Go to Selected Account
+        </button>
+      )}
     </div>
   );
 }

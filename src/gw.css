@@ -1,0 +1,83 @@
+.gw-container {
+  width: 70%;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.gw-title {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 8px;
+  font-size: 26px;
+}
+
+.gw-form {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.gw-form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.gw-form-row label {
+  width: 150px;
+  font-weight: bold;
+}
+
+.gw-form-row input,
+.gw-form-row select {
+  width: 250px;
+  padding: 6px;
+}
+
+.gw-button-row {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.gw-btn-primary {
+  background-color: #116dff;
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.gw-btn-secondary {
+  background-color: #ddd;
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.gw-subtitle {
+  margin-top: 25px;
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+}
+
+.gw-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.gw-table th {
+  background: #efefef;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.gw-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}

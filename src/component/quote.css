@@ -1,0 +1,25 @@
+.quote-wrapper{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:20px;
+  max-width:1200px;
+  margin:20px auto;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.quote-left{ background:white; padding:18px; border-radius:6px; border:1px solid #e1e6ec; }
+.summary-row{ display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.summary-label{ color:#666; font-weight:600; }
+.summary-value{ font-size:18px; font-weight:700; }
+.sums{ text-align:right; color:#333; font-size:13px; }
+
+.form-grid{ display:grid; grid-template-columns:180px 1fr; gap:10px 20px; align-items:center; margin-top:12px; }
+.risk-address{ margin-top:16px; }
+.address-text{ padding:10px; background:#fafafa; border:1px solid #ececec; border-radius:4px; }
+
+.covers-table table{ width:100%; border-collapse:collapse; margin-top:12px; }
+.covers-table th, .covers-table td{ border:1px solid #e9eef5; padding:8px; text-align:left; }
+.quote-right{ background:white; padding:18px; border-radius:6px; border:1px solid #e1e6ec; }
+.right-box{ display:flex; flex-direction:column; gap:10px; }
+.excess-row{ display:flex; justify-content:space-between; align-items:center; padding:6px 0; }
+.btn-primary{ background:#0b64b6; color:white; padding:8px 14px; border:none; border-radius:4px; cursor:pointer; }
