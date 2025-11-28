@@ -6,7 +6,6 @@ import YourHome from "./component/YourHome"
 import YourNeeds from "./component/YourNeeds"
 import Claims from "./component/Claims"
 import Quote from "./component/Quote"
-import Claims from "./component/Claims"
 
 export default function App() {
   return (
