@@ -1,0 +1,70 @@
+.policy-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px 360px;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 18px auto;
+  padding: 18px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.left-col,
+.middle-col,
+.right-col {
+  padding: 6px 12px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+  align-items: center;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+  font-size: 13px;
+}
+
+.value {
+  background: #f7f9fb;
+  padding: 6px 8px;
+  border-radius: 4px;
+  color: #444;
+}
+
+input,
+select,
+textarea {
+  padding: 8px;
+  border: 1px solid #cfd8e3;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.panel-box {
+  border: 1px solid #e6eaf0;
+  padding: 12px;
+  background: #fafbfd;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.primary {
+  background: #0b64b6;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}

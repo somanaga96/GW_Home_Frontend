@@ -52,7 +52,7 @@ export default function SearchAccounts() {
   };
 
   const openCreateAccount = () => {
-    navigate("/create-account", { state: form });
+    navigate("/createaccount", { state: form });
   };
 
   return (

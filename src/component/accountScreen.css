@@ -1,0 +1,29 @@
+.breadcrumb {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.breadcrumb span {
+  cursor: pointer;
+}
+
+.breadcrumb .active {
+  font-weight: bold;
+  color: #000;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-quote {
+  background: #0066cc;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
