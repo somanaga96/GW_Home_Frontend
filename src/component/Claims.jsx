@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { saveClaims } from "../api/claimsApi";
-import "./claims.css";
+import "../component/CSS_Style/claims.css";
 
 export default function Claims() {
   const [form, setForm] = useState({
