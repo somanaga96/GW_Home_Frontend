@@ -17,7 +17,7 @@ export async function searchAccounts(params = {}) {
     }
   });
 
-  const res = await fetch(`${API}/accounts?${query.toString()}`);
+  const res = await fetch(`${API}/account?${query.toString()}`);
   return res.json();
 }
 
@@ -27,7 +27,7 @@ export async function searchAccounts(params = {}) {
 // POST /api/accounts
 // -----------------------------------------
 export async function createAccount(data) {
-  const res = await fetch(`${API}/accounts`, {
+  const res = await fetch(`${API}/account/create`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -47,7 +47,7 @@ export async function createAccount(data) {
 // GET /api/accounts/{id}
 // -----------------------------------------
 export async function getAccount(id) {
-  const res = await fetch(`${API}/accounts/${id}`);
+  const res = await fetch(`${API}/account/${id}`);
 
   if (!res.ok) {
     console.error("Failed to fetch account:", await res.text());

@@ -22,7 +22,7 @@ export default function App() {
 <Route path="/account/:id" element={<AccountScreen />} />
   <Route path="/account/:accountId" element={<AccountScreen />} />
   <Route path="/submission/create/:submissionId" element={<PolicyInfo />} />
-  <Route path="/submission/:submissionId" element={<PolicyInfo />} />
+  <Route path="/submission/create/:submissionId" element={<PolicyInfo />} />
     </Routes>
   );
 }

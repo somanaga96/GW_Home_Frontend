@@ -13,7 +13,7 @@ export default function CreateAccount() {
     title: "",
     firstName: searchData.firstName || "",
     lastName: searchData.lastName || "",
-    dob: searchData.dob || "",
+    dateOfBirth: searchData.dateOfBirth || "",
     gender: "",
     employeeNumber: "",
 
@@ -74,7 +74,7 @@ export default function CreateAccount() {
           <input value={form.lastName} onChange={(e) => setField("lastName", e.target.value)} />
 
           <label>Date of Birth *</label>
-          <input type="date" value={form.dob} onChange={(e) => setField("dob", e.target.value)} />
+          <input type="date" value={form.dateOfBirth} onChange={(e) => setField("dateOfBirth", e.target.value)} />
 
           <label>Gender</label>
           <input value={form.gender} onChange={(e) => setField("gender", e.target.value)} />

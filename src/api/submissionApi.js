@@ -7,15 +7,15 @@ async function request(path, options = {}) {
 }
 
 export const getSubmission = (id) =>
-  request(`/submission/${id}`);
+  request(`/submissions/${id}`);
 
 export const createSubmission = (accountId) =>
-  request(`/submission/create/${accountId}`, {
+  request(`/submissions/account/${accountId}`, {
     method: "POST",
   });
 
 export const updateSubmission = (id, payload) =>
-  request(`/submission/${id}`, {
+  request(`/submissions/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
