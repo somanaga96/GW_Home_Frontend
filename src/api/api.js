@@ -1,58 +1,8 @@
-// -----------------------------------------
-// API BASE URL
-// -----------------------------------------
-const API = "http://localhost:8080/api";
+import axios from "axios";
 
-
-// -----------------------------------------
-// SEARCH ACCOUNTS
-// GET /api/accounts?brandName=...&firstName=...
-// -----------------------------------------
-export async function searchAccounts(params = {}) {
-  const query = new URLSearchParams();
-
-  Object.entries(params).forEach(([key, value]) => {
-    if (value && value.trim() !== "") {
-      query.append(key, value);
-    }
-  });
-
-  const res = await fetch(`${API}/account?${query.toString()}`);
-  return res.json();
-}
-
-
-// -----------------------------------------
-// CREATE ACCOUNT
-// POST /api/accounts
-// -----------------------------------------
-export async function createAccount(data) {
-  const res = await fetch(`${API}/account/create`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-
-  if (!res.ok) {
-    console.error("Failed to create account:", await res.text());
-    throw new Error("Account creation failed");
+export default axios.create({
+  baseURL: "http://localhost:8080",
+  headers: {
+    "Content-Type": "application/json"
   }
-
-  return res.json();
-}
-
-
-// -----------------------------------------
-// GET ACCOUNT BY ID
-// GET /api/accounts/{id}
-// -----------------------------------------
-export async function getAccount(id) {
-  const res = await fetch(`${API}/account/${id}`);
-
-  if (!res.ok) {
-    console.error("Failed to fetch account:", await res.text());
-    throw new Error("Account not found");
-  }
-
-  return res.json();
-}
+});

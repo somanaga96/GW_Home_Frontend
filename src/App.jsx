@@ -1,28 +1,64 @@
 import { Routes, Route } from "react-router-dom";
-import SearchAccounts from "./component/SearchAccounts";
-import CreateAccount from "./component/CreateAccount";
-import PolicyInfo from "./component/PolicyInfo"
-import YourHome from "./component/YourHome"
-import YourNeeds from "./component/YourNeeds"
-import Claims from "./component/Claims"
-import Quote from "./component/Quote"
-import AccountScreen from "./component/AccountScreen";
+
+/* Account */
+import SearchAccounts from "./component/account/SearchAccounts"
+import CreateAccount from "./component/account/CreateAccount";
+import AccountScreen from "./component/account/AccountScreen";
+
+/* Submission (Job Wizard) */
+import PolicyInfo from "./component/PolicyInfo";
+import HomeDetails from "./component/HomeDetails";
+import Claims from "./component/Claims";
+import Quote from "./component/Quote";
+
+/* Policy Jobs */
+import CancelPolicy from "./component/CancelPolicy";
+import ReinstatePolicy from "./component/ReinstatePolicy";
 
 export default function App() {
   return (
     <Routes>
+
+      {/* ================= ACCOUNT ================= */}
       <Route path="/" element={<SearchAccounts />} />
       <Route path="/createAccount" element={<CreateAccount />} />
-     <Route path="/policyInfo/:accountId" element={<PolicyInfo/>} />
-     <Route path="/yourHome" element={<YourHome/>} /> 
-    <Route path="/yourNeeds" element={<YourNeeds/>} /> 
-<Route path="/claims" element={<Claims/>} /> 
-<Route path="/quote" element={<Quote/>} />
-<Route path="/quote/:id" element={<Quote/>} />
-<Route path="/account/:id" element={<AccountScreen />} />
-  <Route path="/account/:accountId" element={<AccountScreen />} />
-  <Route path="/submission/create/:submissionId" element={<PolicyInfo />} />
-  <Route path="/submission/create/:submissionId" element={<PolicyInfo />} />
+      <Route path="/account/:accountId" element={<AccountScreen />} />
+
+      {/* ================= SUBMISSION (JOB) ================= */}
+      {/* Submission Overview */}
+      <Route
+        path="/submission/:submissionNumber"
+        element={<PolicyInfo />}
+      />
+
+      {/* Risk */}
+      <Route
+        path="/submission/:submissionNumber/home"
+        element={<HomeDetails />}
+      />
+  
+      {/* Claims */}
+      <Route
+        path="/submission/:submissionNumber/claims"
+        element={<Claims />}
+      />
+
+      {/* Quote */}
+      <Route
+        path="/submission/:submissionNumber/quote"
+        element={<Quote />}
+      />
+
+      {/* ================= POLICY JOBS ================= */}
+      <Route
+        path="/policy/:policyNumber/cancel"
+        element={<CancelPolicy />}
+      />
+      <Route
+        path="/policy/:policyNumber/reinstate"
+        element={<ReinstatePolicy />}
+      />
+
     </Routes>
   );
 }

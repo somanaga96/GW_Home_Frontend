@@ -1,0 +1,82 @@
+.pc-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.pc-title {
+  margin-bottom: 15px;
+}
+
+.pc-form {
+  width: 450px;
+}
+
+.pc-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.pc-row label {
+  width: 150px;
+  font-weight: bold;
+}
+
+.pc-row input,
+.pc-row select {
+  width: 250px;
+  padding: 4px;
+}
+
+.pc-actions {
+  margin-top: 15px;
+}
+
+.pc-btn {
+  padding: 6px 12px;
+  margin-right: 10px;
+  border: 1px solid #666;
+  background: #e6e6e6;
+  cursor: pointer;
+}
+
+.pc-btn.secondary {
+  background: #d9edf7;
+}
+
+.pc-btn.link {
+  margin-top: 10px;
+}
+
+.pc-results {
+  margin-top: 25px;
+}
+
+.pc-results table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pc-results th,
+.pc-results td {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+.pc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pc-two-column {
+  display: flex;
+  gap: 40px;
+}
+
+.pc-column {
+  width: 50%;
+}
+
+.pc-checkbox {
+  margin: 5px 0;
+}

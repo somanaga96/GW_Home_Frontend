@@ -1,0 +1,24 @@
+.pc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pc-two-column {
+  display: flex;
+  gap: 40px;
+}
+
+.pc-column {
+  width: 50%;
+}
+
+.pc-row input:disabled {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.pc-btn.small {
+  padding: 4px 8px;
+}
