@@ -1,0 +1,36 @@
+.policy-bound-container {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.policy-bound-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.policy-bound-message {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.policy-bound-actions {
+  list-style: none;
+  padding-left: 0;
+}
+
+.policy-bound-actions li {
+  margin-bottom: 10px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #1a5fb4;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}

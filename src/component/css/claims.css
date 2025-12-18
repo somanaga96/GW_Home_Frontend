@@ -1,0 +1,25 @@
+.claims-section {
+  margin-top: 20px;
+}
+
+.claims-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.claims-row label {
+  width: 520px;
+  font-weight: bold;
+}
+
+.claims-row select {
+  width: 180px;
+  padding: 4px;
+}
+
+.err {
+  color: red;
+  font-size: 12px;
+  margin-left: 10px;
+}

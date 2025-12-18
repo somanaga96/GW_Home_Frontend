@@ -1,0 +1,51 @@
+.quote-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.quote-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quote-header button {
+  margin-left: 8px;
+  padding: 6px 14px;
+}
+
+.quote-summary {
+  margin-top: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.quote-summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.quote-details {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.quote-block {
+  width: 33%;
+}
+
+.quote-block h3 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.quote-block input {
+  width: 100%;
+  padding: 6px;
+  margin-top: 6px;
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+}

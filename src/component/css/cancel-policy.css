@@ -1,0 +1,47 @@
+/* ================= CANCEL POLICY ================= */
+
+.cancel-container {
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+}
+
+.cancel-container h2 {
+  margin-bottom: 20px;
+}
+
+.cancel-row {
+  margin-bottom: 15px;
+}
+
+.cancel-row label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cancel-row input,
+.cancel-row textarea,
+.cancel-row select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+}
+
+.cancel-row textarea {
+  height: 80px;
+}
+
+.danger-btn {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.danger-btn:hover {
+  background-color: #a61c1c;
+}

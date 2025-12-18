@@ -1,0 +1,52 @@
+.policy-review-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.policy-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.policy-review-header button {
+  margin-left: 8px;
+  padding: 6px 14px;
+}
+
+.policy-review-columns {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.policy-review-column {
+  width: 50%;
+}
+
+.policy-review-section {
+  margin-bottom: 20px;
+}
+
+.policy-review-section h3 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+}
+
+.policy-review-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.policy-review-premium {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0a7d2e;
+}
+
+.highlight {
+  background: #f4fdf4;
+  padding: 10px;
+  border: 1px solid #cce5cc;
+}
