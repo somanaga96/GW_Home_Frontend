@@ -1,52 +1,116 @@
+/* ================= ROOT ================= */
 .policy-review-container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f8;
+  padding: 16px;
 }
 
+/* ================= HEADER ================= */
 .policy-review-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 14px;
+}
+
+.policy-review-header h2 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
 }
 
 .policy-review-header button {
-  margin-left: 8px;
-  padding: 6px 14px;
+  margin-left: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  border: 1px solid #bfc7d1;
+  background: #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
+.policy-review-header button:hover {
+  background: #eef2f7;
+}
+
+/* ================= COLUMNS ================= */
 .policy-review-columns {
-  display: flex;
-  gap: 40px;
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
 }
 
+/* ================= COLUMN ================= */
 .policy-review-column {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
+/* ================= SECTION ================= */
 .policy-review-section {
-  margin-bottom: 20px;
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
 }
 
 .policy-review-section h3 {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b5394; /* Guidewire blue */
+  background: #f1f3f6;
+  border-bottom: 1px solid #dcdcdc;
 }
 
+/* ================= ROW ================= */
 .policy-review-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.policy-review-row:last-child {
+  border-bottom: none;
+}
+
+.policy-review-row label {
+  color: #374151;
+}
+
+.policy-review-row span {
+  font-weight: 500;
+}
+
+/* ================= PREMIUM HIGHLIGHT ================= */
+.policy-review-section.highlight {
+  border: 1px solid #c7e5c7;
+  background: #f3fbf3;
+}
+
+.policy-review-section.highlight h3 {
+  background: #e9f7ea;
+  color: #1e7f33;
+  border-bottom: 1px solid #c7e5c7;
 }
 
 .policy-review-premium {
-  font-size: 22px;
-  font-weight: bold;
-  color: #0a7d2e;
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e7f33;
 }
 
-.highlight {
-  background: #f4fdf4;
-  padding: 10px;
-  border: 1px solid #cce5cc;
+/* ================= ALIGNMENT FIXES ================= */
+.policy-review-section:not(.highlight) .policy-review-row span {
+  text-align: right;
+}
+
+/* ================= RESPONSIVE (OPTIONAL) ================= */
+@media (max-width: 1200px) {
+  .policy-review-columns {
+    grid-template-columns: 1fr;
+  }
 }

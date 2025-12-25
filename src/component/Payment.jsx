@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import api from "../api/api";
-import "./css/policy-bound.css";
+import "./css/payment.css";
 
 export default function BindPolicy() {
   const { submissionNumber } = useParams();

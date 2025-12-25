@@ -1,67 +1,111 @@
 .home-details-container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f8;
+  padding-left: 180px;
 }
 
+/* HEADER */
 .home-details-header {
+  background: #ffffff;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 10px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.home-details-header button {
-  margin-left: 8px;
-  padding: 6px 14px;
+.home-details-header h2 {
+  font-size: 16px;
+  margin: 0;
 }
 
+.actions button {
+  margin-left: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+/* TABS */
 .home-details-tabs {
-  margin-top: 15px;
+  background: #ffffff;
+  border-bottom: 1px solid #dcdcdc;
+  padding-left: 16px;
 }
 
 .home-details-tabs button {
-  margin-right: 10px;
-  padding: 6px 12px;
-  border: 1px solid #999;
-  background: #f2f2f2;
+  border: none;
+  background: none;
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
 }
 
-.home-details-tabs .active {
-  background: #cce5ff;
+.home-details-tabs button.active {
+  border-bottom: 3px solid #2563eb;
+  font-weight: 600;
 }
 
-.home-details-grid {
-  display: flex;
-  gap: 40px;
-  margin-top: 20px;
+/* GRID */
+.gw-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 16px;
 }
 
-.home-details-section {
-  width: 50%;
+/* SECTION */
+.gw-section {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
 }
 
-.home-details-section h3 {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
+.gw-section.full {
+  grid-column: span 2;
 }
 
-.home-details-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
+.gw-section h3 {
+  background: #f1f3f6;
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-bottom: 1px solid #dcdcdc;
 }
 
-.home-details-row label {
-  width: 200px;
-  font-weight: bold;
+/* ROW */
+.gw-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eeeeee;
 }
 
-.home-details-row input,
-.home-details-row select {
-  width: 220px;
-  padding: 4px;
+.gw-row.split {
+  grid-template-columns: 260px 120px 260px 120px;
 }
-.err {
-  color: red;
+
+.gw-row label {
   font-size: 12px;
-  margin-left: 10px;
+}
+
+.gw-row input,
+.gw-row select {
+  font-size: 12px;
+  padding: 4px 6px;
+  border: 1px solid #bfc7d1;
+}
+
+.radio {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+}
+
+/* LINK BUTTON */
+.link-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 12px;
 }

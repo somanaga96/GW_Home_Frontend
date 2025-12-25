@@ -7,10 +7,11 @@ export default function PolicyBound() {
 
   return (
     <div className="policy-bound-container">
-
-      {/* HEADER */}
-      <div className="policy-bound-header">
-        <h2>Policy Change Bound</h2>
+      {/* MESSAGE */}
+      <div className="policy-bound-message">
+        <h1>
+          Policy Issue
+        </h1>
       </div>
 
       {/* MESSAGE */}

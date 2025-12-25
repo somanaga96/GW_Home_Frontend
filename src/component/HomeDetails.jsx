@@ -6,52 +6,41 @@ import "./css/home-details.css";
 export default function HomeDetails() {
   const { submissionNumber } = useParams();
   const navigate = useNavigate();
-
   const [tab, setTab] = useState("HOME");
-  const [errors, setErrors] = useState({});
 
+  // ================= STATE (ALL FIELDS, BOOLEAN SAFE) =================
   const [form, setForm] = useState({
     propertyDetails: {
       riskAddress: "",
       homeType: "",
       ownership: "",
       builtYear: "",
-      yearsAtProperty: "",
-      listedBuilding: "",
       bedRooms: "",
-      bathrooms: "",
-      exteriorWalls: "",
-      roofMadeOf: "",
-      partRoofFlat: "",
-      goodStateRepair: "",
-      subsidence: false,
-      flood10Years: false,
-      floodingRisk: false,
-      isCurrentlyFlooded: false,
+      listedBuilding: null,
+      subsidence: null,
+      flood10Years: null,
+      currentlyFlooded: null,
       adultsLiving: "",
       childrenLiving: "",
-      permanentResidence: true,
-      empty30Days: false,
-      businessUse: false,
-      hasSecurityAlarm: false
+      hasSecurityAlarm: null
     },
     yourNeeds: {
       contentsCoverAmount: "",
-      bikesOver500: false,
-      highRiskItemsOver2000: false,
+      bikesOver500: null,
+      highRiskItemsOver2000: null,
       totalHighRiskValue: "",
-      totalPersonalItemsCover: ""
+      personalItemsCover: ""
     }
   });
 
-  // ---------------- Load existing data ----------------
+  // ================= LOAD (OPTIONAL – SAFE IF API EXISTS) =================
   useEffect(() => {
     api.get(`/api/home-details/submission/${submissionNumber}`)
-      .then(res => setForm(res.data))
+      .then(res => res?.data && setForm(res.data))
       .catch(() => {});
   }, [submissionNumber]);
 
-  // ---------------- Update helpers ----------------
+  // ================= HELPERS =================
   const updateProperty = (field, value) => {
     setForm(prev => ({
       ...prev,
@@ -66,49 +55,23 @@ export default function HomeDetails() {
     }));
   };
 
-  // ---------------- Validation ----------------
-  const validate = () => {
-    const e = {};
+  const boolToSelect = (v) => v === null ? "" : v ? "Yes" : "No";
+  const selectToBool = (v) => v === "" ? null : v === "Yes";
 
-    const p = form.propertyDetails;
-    const n = form.yourNeeds;
-
-    if (!p.riskAddress) e.riskAddress = "Risk address is required";
-    if (!p.homeType) e.homeType = "Home type is required";
-    if (!p.ownership) e.ownership = "Ownership is required";
-    if (!p.builtYear) e.builtYear = "Year built is required";
-    if (!p.bedRooms) e.bedRooms = "Bedrooms required";
-
-    if (!n.contentsCoverAmount)
-      e.contentsCoverAmount = "Contents cover is required";
-
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
-
-  // ---------------- Save ----------------
   const save = async () => {
-    if (!validate()) {
-      alert("Please fix validation errors");
-      return;
-    }
-
-    await api.post(
-      `/api/home-details/submission/${submissionNumber}`,
-      form
-    );
-
-    // alert("Home details saved");
+    // API can be wired later
+    await api.post(`/api/home-details/submission/${submissionNumber}`, form);
     navigate(`/submission/${submissionNumber}/claims`);
   };
 
+  // ================= UI =================
   return (
     <div className="home-details-container">
 
       {/* HEADER */}
       <div className="home-details-header">
         <h2>Your Home</h2>
-        <div>
+        <div className="actions">
           <button onClick={save}>OK</button>
           <button onClick={() => navigate(-1)}>Cancel</button>
         </div>
@@ -116,107 +79,219 @@ export default function HomeDetails() {
 
       {/* TABS */}
       <div className="home-details-tabs">
-        <button className={tab === "HOME" ? "active" : ""}
-                onClick={() => setTab("HOME")}>
+        <button className={tab === "HOME" ? "active" : ""} onClick={() => setTab("HOME")}>
           Your Home
         </button>
-        <button className={tab === "NEEDS" ? "active" : ""}
-                onClick={() => setTab("NEEDS")}>
+        <button className={tab === "NEEDS" ? "active" : ""} onClick={() => setTab("NEEDS")}>
           Your Needs
         </button>
       </div>
 
       {/* ================= YOUR HOME ================= */}
       {tab === "HOME" && (
-        <div className="home-details-grid">
+        <div className="gw-grid">
 
-          <div className="home-details-section">
+          {/* LEFT */}
+          <div className="gw-section">
             <h3>Property Details</h3>
 
-            <div className="home-details-row">
-              <label>Risk Address *</label>
-              <input
-                value={form.propertyDetails.riskAddress}
-                onChange={e => updateProperty("riskAddress", e.target.value)}
-              />
-              {errors.riskAddress && <span className="err">{errors.riskAddress}</span>}
+            <div className="gw-row">
+              <label>Risk Address</label>
+              <select value={form.propertyDetails.riskAddress}
+                      onChange={e => updateProperty("riskAddress", e.target.value)}>
+                <option value="">&lt;none&gt;</option>
+                <option>risk1</option>
+                <option>risk2</option>
+              </select>
             </div>
 
-            <div className="home-details-row">
-              <label>Type of Home *</label>
-              <select
-                value={form.propertyDetails.homeType}
-                onChange={e => updateProperty("homeType", e.target.value)}
-              >
-                <option value="">&#60;none&#62;</option>
+            <div className="gw-row">
+              <label>Home Type</label>
+              <select value={form.propertyDetails.homeType}
+                      onChange={e => updateProperty("homeType", e.target.value)}>
+                <option value="">&lt;none&gt;</option>
                 <option>Detached</option>
                 <option>Semi Detached</option>
                 <option>Flat</option>
               </select>
-              {errors.homeType && <span className="err">{errors.homeType}</span>}
             </div>
 
-            <div className="home-details-row">
-              <label>Ownership *</label>
-              <select
-                value={form.propertyDetails.ownership}
-                onChange={e => updateProperty("ownership", e.target.value)}
-              >
-                <option value="">&#60;none&#62;</option>
+            <div className="gw-row">
+              <label>Ownership</label>
+              <select value={form.propertyDetails.ownership}
+                      onChange={e => updateProperty("ownership", e.target.value)}>
+                <option value="">&lt;none&gt;</option>
                 <option>Owned</option>
                 <option>Rented</option>
               </select>
             </div>
 
-            <div className="home-details-row">
-              <label>Year Built *</label>
-              <input
-                value={form.propertyDetails.builtYear}
-                onChange={e => updateProperty("builtYear", e.target.value)}
-              />
-              {errors.builtYear && <span className="err">{errors.builtYear}</span>}
+            <div className="gw-row">
+              <label>Built Year</label>
+              <input value={form.propertyDetails.builtYear}
+                     onChange={e => updateProperty("builtYear", e.target.value)} />
             </div>
 
-            <div className="home-details-row">
-              <label>Bedrooms *</label>
-              <input
-                value={form.propertyDetails.bedRooms}
-                onChange={e => updateProperty("bedRooms", e.target.value)}
-              />
-              {errors.bedRooms && <span className="err">{errors.bedRooms}</span>}
+            <div className="gw-row">
+              <label>Bedrooms</label>
+              <input value={form.propertyDetails.bedRooms}
+                     onChange={e => updateProperty("bedRooms", e.target.value)} />
             </div>
 
+            <div className="gw-row">
+              <label>Listed Building?</label>
+              <select value={boolToSelect(form.propertyDetails.listedBuilding)}
+                      onChange={e => updateProperty("listedBuilding", selectToBool(e.target.value))}>
+                <option value="">&lt;none&gt;</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div className="gw-row">
+              <label>Security Alarm?</label>
+              <div className="radio">
+                <label>
+                  <input type="radio"
+                         checked={form.propertyDetails.hasSecurityAlarm === true}
+                         onChange={() => updateProperty("hasSecurityAlarm", true)} />
+                  Yes
+                </label>
+                <label>
+                  <input type="radio"
+                         checked={form.propertyDetails.hasSecurityAlarm === false}
+                         onChange={() => updateProperty("hasSecurityAlarm", false)} />
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="gw-section">
+            <h3>Risk Information</h3>
+
+            <div className="gw-row">
+              <label>Subsidence?</label>
+              <select value={boolToSelect(form.propertyDetails.subsidence)}
+                      onChange={e => updateProperty("subsidence", selectToBool(e.target.value))}>
+                <option value="">&lt;none&gt;</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div className="gw-row">
+              <label>Flooded last 10 years?</label>
+              <select value={boolToSelect(form.propertyDetails.flood10Years)}
+                      onChange={e => updateProperty("flood10Years", selectToBool(e.target.value))}>
+                <option value="">&lt;none&gt;</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div className="gw-row">
+              <label>Currently Flooded?</label>
+              <select value={boolToSelect(form.propertyDetails.currentlyFlooded)}
+                      onChange={e => updateProperty("currentlyFlooded", selectToBool(e.target.value))}>
+                <option value="">&lt;none&gt;</option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div className="gw-row">
+              <label>Adults Living</label>
+              <select value={form.propertyDetails.adultsLiving}
+                      onChange={e => updateProperty("adultsLiving", e.target.value)}>
+                <option value="">&lt;none&gt;</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3+</option>
+              </select>
+            </div>
+
+            <div className="gw-row">
+              <label>Children Living</label>
+              <select value={form.propertyDetails.childrenLiving}
+                      onChange={e => updateProperty("childrenLiving", e.target.value)}>
+                <option value="">&lt;none&gt;</option>
+                <option>0</option>
+                <option>1</option>
+                <option>2+</option>
+              </select>
+            </div>
           </div>
         </div>
       )}
 
       {/* ================= YOUR NEEDS ================= */}
       {tab === "NEEDS" && (
-        <div className="home-details-grid">
+        <div className="gw-grid">
+          <div className="gw-section full">
 
-          <div className="home-details-section">
-            <h3>Your Needs</h3>
-
-            <div className="home-details-row">
-              <label>Contents Cover *</label>
-              <select
-                value={form.yourNeeds.contentsCoverAmount}
-                onChange={e => updateNeeds("contentsCoverAmount", e.target.value)}
-              >
-                <option value="">&#60;none&#62;</option>
-                <option value="20000">£20,000</option>
-                <option value="60000">£60,000</option>
-                <option value="100000">£100,000</option>
+            <div className="gw-row">
+              <label>Contents Cover Amount</label>
+              <select value={form.yourNeeds.contentsCoverAmount}
+                      onChange={e => updateNeeds("contentsCoverAmount", e.target.value)}>
+                <option value="">&lt;none&gt;</option>
+                <option>£20,000</option>
+                <option>£60,000</option>
+                <option>£100,000</option>
               </select>
-              {errors.contentsCoverAmount && (
-                <span className="err">{errors.contentsCoverAmount}</span>
-              )}
             </div>
 
+            <div className="gw-row split">
+              <label>Bikes over £500?</label>
+              <div className="radio">
+                <label>
+                  <input type="radio"
+                         checked={form.yourNeeds.bikesOver500 === true}
+                         onChange={() => updateNeeds("bikesOver500", true)} /> Yes
+                </label>
+                <label>
+                  <input type="radio"
+                         checked={form.yourNeeds.bikesOver500 === false}
+                         onChange={() => updateNeeds("bikesOver500", false)} /> No
+                </label>
+              </div>
+
+              <label>High risk items over £2000?</label>
+              <div className="radio">
+                <label>
+                  <input type="radio"
+                         checked={form.yourNeeds.highRiskItemsOver2000 === true}
+                         onChange={() => updateNeeds("highRiskItemsOver2000", true)} /> Yes
+                </label>
+                <label>
+                  <input type="radio"
+                         checked={form.yourNeeds.highRiskItemsOver2000 === false}
+                         onChange={() => updateNeeds("highRiskItemsOver2000", false)} /> No
+                </label>
+              </div>
+            </div>
+            <div className="gw-row">
+              <label>Contents Cover Amount</label>
+              <select value={form.yourNeeds.totalHighRiskValue}
+                      onChange={e => updateNeeds("totalHighRiskValue", e.target.value)}>
+                <option value="">&lt;none&gt;</option>
+                <option>True</option>
+                <option>False</option>
+              </select>
+            </div>
+            <div className="gw-row">
+              <label>Contents Cover Amount</label>
+              <select value={form.yourNeeds.personalItemsCover}
+                      onChange={e => updateNeeds("personalItemsCover", e.target.value)}>
+                <option value="">&lt;none&gt;</option>
+                <option>True</option>
+                <option>False</option>
+              </select>
+            </div>
           </div>
         </div>
       )}
-
     </div>
   );
 }

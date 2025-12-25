@@ -240,21 +240,6 @@ BR1 1NA`}
 
         </div>
       </div>
-
-      {/* ================= LEFT NAV ================= */}
-      <div className="policy-info-nav">
-        <button className="active">Policy Info</button>
-        <button onClick={() => navigate(`/submission/${submissionNumber}/home`)}>
-          Home
-        </button>
-        <button onClick={() => navigate(`/submission/${submissionNumber}/claims`)}>
-          Claims
-        </button>
-        <button onClick={() => navigate(`/submission/${submissionNumber}/quote`)}>
-          Quote
-        </button>
-      </div>
-
     </div>
   );
 }

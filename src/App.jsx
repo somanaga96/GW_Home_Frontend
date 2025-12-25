@@ -1,9 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 /* Account */
 import SearchAccounts from "./component/account/SearchAccounts";
 import CreateAccount from "./component/account/CreateAccount";
 import AccountScreen from "./component/account/AccountScreen";
+
+/* Submission Layout */
+import SubmissionLayout from "./component/layout/SubmissionLayout"
 
 /* Submission (Job Wizard) */
 import PolicyInfo from "./component/PolicyInfo";
@@ -20,61 +23,42 @@ import PolicyBound from "./component/PolicyBound";
 
 export default function App() {
   return (
-      <Routes>
+    <Routes>
 
-        {/* ================= ACCOUNT ================= */}
-        <Route path="/" element={<SearchAccounts />} />
-        <Route path="/createAccount" element={<CreateAccount />} />
-        <Route path="/account/:accountId" element={<AccountScreen />} />
+      {/* ================= ACCOUNT ================= */}
+      <Route path="/" element={<SearchAccounts />} />
+      <Route path="/createAccount" element={<CreateAccount />} />
+      <Route path="/account/:accountId" element={<AccountScreen />} />
 
-        {/* ================= SUBMISSION (JOB) ================= */}
-        <Route
-          path="/submission/:submissionNumber"
-          element={<PolicyInfo />}
-        />
+      {/* ================= SUBMISSION (JOB WIZARD) ================= */}
+      <Route
+        path="/submission/:submissionNumber"
+        element={<SubmissionLayout />}
+      >
+        <Route index element={<PolicyInfo />} />
+        <Route path="home" element={<HomeDetails />} />
+        <Route path="claims" element={<Claims />} />
+        <Route path="quote" element={<Quote />} />
+        <Route path="policy-review" element={<PolicyReview />} />
+        <Route path="payment" element={<Payment />} />
+      </Route>
 
-        <Route
-          path="/submission/:submissionNumber/home"
-          element={<HomeDetails />}
-        />
+      {/* ================= POLICY JOBS ================= */}
+      <Route
+        path="/policy/:policyNumber/cancel"
+        element={<CancelPolicy />}
+      />
+      <Route
+        path="/policy/:policyNumber/reinstate"
+        element={<ReinstatePolicy />}
+      />
 
-        <Route
-          path="/submission/:submissionNumber/claims"
-          element={<Claims />}
-        />
+      {/* ================= FINAL ================= */}
+      <Route
+        path="/policy/bound/:policyNumber"
+        element={<PolicyBound />}
+      />
 
-        <Route
-          path="/submission/:submissionNumber/quote"
-          element={<Quote />}
-        />
-
-        <Route
-          path="/submission/:submissionNumber/policy-review"
-          element={<PolicyReview />}
-        />
-
-        <Route
-          path="/submission/:submissionNumber/payment"
-          element={<Payment />}
-        />
-
-        {/* ================= POLICY JOBS ================= */}
-        <Route
-          path="/policy/:policyNumber/cancel"
-          element={<CancelPolicy />}
-        />
-
-        <Route
-          path="/policy/:policyNumber/reinstate"
-          element={<ReinstatePolicy />}
-        />
-
-        {/* ✅ FINAL SUCCESS SCREEN */}
-        <Route
-          path="/policy/bound/:policyNumber"
-          element={<PolicyBound />}
-        />
-
-      </Routes>
+    </Routes>
   );
 }

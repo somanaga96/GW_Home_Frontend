@@ -9,6 +9,7 @@ export default function AccountScreen() {
 
   const [account, setAccount] = useState(null);
   const [submissions, setSubmissions] = useState([]);
+    const [policies, setPolicies] = useState([]);
 
   useEffect(() => {
     // Load account details
@@ -18,6 +19,10 @@ export default function AccountScreen() {
     // Load submissions for account
     api.get(`/api/submissions/account/${accountId}`)
       .then(res => setSubmissions(res.data));
+
+        // Load policies for account
+    api.get(`/api/policies/account/${accountId}`)
+      .then(res => setPolicies(res.data));
   }, [accountId]);
 
   const newSubmission = async () => {
@@ -117,6 +122,46 @@ export default function AccountScreen() {
                   <td>{sub.submissionNumber}</td>
                   <td>{sub.status}</td>
                   <td>{sub.createdDate}</td>
+                  <td>
+                    <button
+                      className="pc-btn small"
+                      onClick={() =>
+                        navigate(`/submission/${sub.submissionNumber}`)
+                      }
+                    >
+                      Open
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+
+       {/* ================= POLICIES LIST ================= */}
+      <div className="pc-results">
+        <h3>Policies</h3>
+
+        {policies.length === 0 ? (
+          <p>No Policies available</p>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <th>Policy Number</th>
+                <th>Status</th>
+                <th>Effective Date</th>
+                  <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {policies.map(sub => (
+                <tr key={sub.id}>
+                  <td>{sub.policyNumber}</td>
+                  <td>{sub.status}</td>
+                  <td>{sub.effectiveDate}</td>
+                  
                   <td>
                     <button
                       className="pc-btn small"

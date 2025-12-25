@@ -1,59 +1,69 @@
-.payment-container {
+/* ================= ROOT ================= */
+.bind-container {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f8;
   padding: 20px;
-  font-family: Arial, sans-serif;
 }
 
-.payment-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.payment-header button {
-  margin-left: 8px;
-  padding: 6px 14px;
-}
-
-.payment-premium {
-  display: flex;
-  justify-content: space-between;
+/* ================= TITLE ================= */
+.bind-container h2 {
   font-size: 18px;
-  margin: 15px 0;
-  font-weight: bold;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
 }
 
-.payment-section {
-  margin-top: 20px;
+/* ================= FORM ROW ================= */
+.bind-row {
+  display: grid;
+  grid-template-columns: 220px 260px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 13px;
 }
 
-.payment-section h3 {
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 4px;
+.bind-row label {
+  color: #374151;
 }
 
-.payment-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+/* ================= INPUTS ================= */
+.bind-row select {
+  font-size: 12px;
+  padding: 4px 6px;
+  border: 1px solid #bfc7d1;
+  border-radius: 2px;
+  background: #ffffff;
+  width: 180px;
 }
 
-.payment-table th,
-.payment-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
+.bind-row input[type="radio"] {
+  margin-left: 6px;
+  margin-right: 4px;
+  vertical-align: middle;
 }
 
-.payment-row {
-  margin-top: 10px;
+/* ================= BUTTON ================= */
+.primary-btn {
+  margin-top: 12px;
+  padding: 6px 14px;
+  font-size: 13px;
+  border: 1px solid #bfc7d1;
+  background: #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
-.payment-row label {
-  display: inline-block;
-  width: 220px;
+.primary-btn:hover {
+  background: #eef2f7;
 }
 
-.payment-empty {
-  margin-top: 10px;
-  color: #777;
+/* ================= ALIGNMENT FIX ================= */
+.bind-row:nth-child(5) {
+  align-items: flex-start;
+}
+
+/* ================= GUIDEWIRE LOOK ================= */
+.bind-container {
+  max-width: 600px;
 }

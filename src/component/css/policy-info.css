@@ -1,50 +1,157 @@
-/* ================= POLICY BOUND ================= */
-
-.policy-bound-container {
-  padding: 40px;
-  font-family: Arial, sans-serif;
-  background: #fff;
-  min-height: 80vh;
-}
-
-/* Header */
-.policy-bound-header {
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 20px;
-}
-
-.policy-bound-header h2 {
-  margin: 0;
-  font-size: 22px;
-  color: #2f2f2f;
-}
-
-/* Message */
-.policy-bound-message {
-  margin: 20px 0;
-  font-size: 15px;
-  color: #333;
-}
-
-/* Actions */
-.policy-bound-actions {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 300px;
-}
-
-.link-btn {
-  background: none;
-  border: none;
-  color: #0b5cab;
-  font-size: 14px;
-  text-align: left;
-  cursor: pointer;
+/* ================= ROOT ================= */
+.policy-info-container {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f8;
+  height: 100%;
   padding: 0;
 }
 
-.link-btn:hover {
-  text-decoration: underline;
+/* ================= HEADER ================= */
+.policy-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #dcdcdc;
+  padding: 12px 20px;
+}
+
+.policy-info-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.policy-info-actions button {
+  margin-left: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 3px;
+  border: 1px solid #bfc7d1;
+  background: #f8f9fb;
+  cursor: pointer;
+}
+
+.policy-info-actions button:hover {
+  background: #e9edf2;
+}
+
+/* ================= TWO COLUMN ================= */
+.policy-info-columns {
+  display: flex;
+  gap: 20px;
+  padding: 16px 20px;
+}
+
+/* ================= COLUMN ================= */
+.policy-info-column {
+  flex: 1;
+}
+
+/* ================= SECTION ================= */
+.policy-info-section {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  margin-bottom: 16px;
+}
+
+.policy-info-section h3 {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #f1f3f6;
+  border-bottom: 1px solid #dcdcdc;
+  color: #374151;
+}
+
+/* ================= ROW ================= */
+.policy-info-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  padding: 8px 12px;
+  align-items: center;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.policy-info-row:last-child {
+  border-bottom: none;
+}
+
+.policy-info-row label {
+  font-size: 12px;
+  color: #374151;
+}
+
+/* ================= INPUTS ================= */
+.policy-info-row input,
+.policy-info-row select,
+.policy-info-row textarea {
+  font-size: 12px;
+  padding: 4px 6px;
+  border: 1px solid #bfc7d1;
+  border-radius: 2px;
+  background: #ffffff;
+}
+
+.policy-info-row textarea {
+  resize: none;
+  height: 70px;
+}
+
+.policy-info-row input:disabled,
+.policy-info-row textarea:disabled,
+.policy-info-row select:disabled {
+  background: #f3f4f6;
+  color: #555;
+}
+
+/* ================= RADIO ================= */
+.policy-info-radio {
+  display: flex;
+  gap: 16px;
+}
+
+.policy-info-radio label {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ================= LEFT NAV ================= */
+.policy-info-nav {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 180px;
+  height: calc(100% - 70px);
+  background: #1f2937;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.policy-info-nav button {
+  background: none;
+  border: none;
+  color: #e5e7eb;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.policy-info-nav button:hover {
+  background: #374151;
+}
+
+.policy-info-nav button.active {
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ================= PAGE OFFSET FOR NAV ================= */
+.policy-info-container {
+  margin-left: 180px;
 }

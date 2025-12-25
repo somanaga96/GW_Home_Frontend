@@ -1,34 +1,44 @@
+/* ================= ROOT ================= */
 .policy-bound-container {
-  padding: 40px;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f8;
+  min-height: 100vh;
+  padding: 24px 32px;
 }
 
-.policy-bound-title {
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
+/* ================= MESSAGE ================= */
 .policy-bound-message {
-  margin-bottom: 20px;
   font-size: 14px;
+  color: #111827;
+  margin-bottom: 16px;
 }
 
+.policy-bound-message p {
+  margin: 0;
+}
+
+.policy-bound-message strong {
+  font-weight: 600;
+}
+
+/* ================= ACTIONS ================= */
 .policy-bound-actions {
-  list-style: none;
-  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
 }
 
-.policy-bound-actions li {
-  margin-bottom: 10px;
-}
-
+/* ================= LINK BUTTONS ================= */
 .link-btn {
   background: none;
   border: none;
-  color: #1a5fb4;
-  cursor: pointer;
   padding: 0;
-  font-size: 14px;
+  font-size: 13px;
+  color: #2563eb; /* Guidewire link blue */
+  text-align: left;
+  cursor: pointer;
+  width: fit-content;
 }
 
 .link-btn:hover {
